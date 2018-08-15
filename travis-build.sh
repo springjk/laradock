@@ -17,6 +17,6 @@ if [ -n "${PHP_VERSION}" ]; then
     docker images
     docker tag laradock_${BUILD_SERVICE}:latest ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}:auto-build
     docker images
-    docker push {$DOCKER_USERNAME}/laradock-${BUILD_SERVICE}
+    docker push ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}
 fi
 
