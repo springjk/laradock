@@ -15,5 +15,8 @@ if [ -n "${PHP_VERSION}" ]; then
     cat .env
     docker-compose build ${BUILD_SERVICE}
     docker images
+    docker tag laradock_${BUILD_SERVICE}:latest {$DOCKER_USERNAME}/laradock-${BUILD_SERVICE}:auto-build
+    docker images
+    docker push {$DOCKER_USERNAME}/laradock-${BUILD_SERVICE}
 fi
 
