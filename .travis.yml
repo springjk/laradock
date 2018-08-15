@@ -16,6 +16,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
   - docker version
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 script: ./travis-build.sh
 
