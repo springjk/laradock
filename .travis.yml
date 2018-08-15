@@ -7,6 +7,9 @@ env:
   matrix:
     - PHP_VERSION=7.2 BUILD_SERVICE=workspace
     - PHP_VERSION=7.2 BUILD_SERVICE=php-fpm
+    - BUILD_SERVICE=nginx
+    - BUILD_SERVICE=mysql
+    - BUILD_SERVICE=redis
 
 
 # Installing a newer Docker version
