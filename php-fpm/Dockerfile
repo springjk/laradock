@@ -506,11 +506,11 @@ USER root
 ARG INSTALL_FFMPEG=false
 
 RUN if [ ${INSTALL_FFMPEG} = true ]; then \
-    echo "deb http://www.deb-multimedia.org jessie main" >> /etc/apt/sources.list \
-    && echo "APT::Get::AllowUnauthenticated 1 ;" >> /etc/apt/apt.conf \
-    && apt-get update -y \
-    && apt-get install --force-yes -y deb-multimedia-keyring \
-    && apt-get install -y ffmpeg \
+    echo "deb http://www.deb-multimedia.org jessie main" >> /etc/apt/sources.list && \
+    echo "APT::Get::AllowUnauthenticated 1 ;" >> /etc/apt/apt.conf && \
+    apt-get update -y && \
+    apt-get install --force-yes -y deb-multimedia-keyring && \
+    apt-get install -y ffmpeg \
 ;fi
 
 
