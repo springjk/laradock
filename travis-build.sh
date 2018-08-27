@@ -11,6 +11,7 @@ env | sort
 
 #### Build the Docker Images
 
+
 cp env-build .env
 cat .env
 docker-compose build ${BUILD_SERVICE}
