@@ -150,6 +150,8 @@ PHP_FPM_INSTALL_PG_CLIENT=false
 PHP_FPM_INSTALL_PCNTL=false
 PHP_FPM_INSTALL_CALENDAR=false
 
+PHP_FPM_INSTALL_FFMPEG=true
+
 ### PHP_WORKER ############################################
 
 PHP_WORKER_INSTALL_PGSQL=false
