@@ -153,7 +153,7 @@ PHP_FPM_INSTALL_CALENDAR=false
 PHP_FPM_INSTALL_FAKETIME=false
 PHP_FPM_FAKETIME=-0
 
-PHP_FPM_INSTALL_FFMPEG=false
+PHP_FPM_INSTALL_FFMPEG=true
 
 ### PHP_WORKER ############################################
 
