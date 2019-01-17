@@ -194,7 +194,7 @@ MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
 ### REDIS #################################################
 
 REDIS_PORT=6379
-REDIS_PASSWORD=reids@docker
+REDIS_PASSWORD=redis@docker
 
 ### Percona ###############################################
 
