@@ -783,7 +783,7 @@ RUN if [ ${INSTALL_PG_CLIENT} = true ]; then \
 USER root
 
 RUN apt-get update -yqq \
-    && apt-get -yqq install nasm 
+    && apt-get -yqq install nasm
 
 ###########################################################################
 # Dusk Dependencies:
@@ -809,6 +809,19 @@ RUN if [ ${INSTALL_DUSK_DEPS} = true ]; then \
   && unzip chromedriver_linux64.zip \
   && mv chromedriver /usr/local/bin/ \
   && rm chromedriver_linux64.zip \
+;fi
+
+###########################################################################
+# FFmpeg:
+###########################################################################
+
+USER root
+
+ARG INSTALL_FFMPEG=false
+
+RUN if [ ${INSTALL_FFMPEG} = true ]; then \
+    apt-get update -y && \
+    apt-get install -y ffmpeg \
 ;fi
 
 ###########################################################################
