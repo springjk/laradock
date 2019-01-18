@@ -72,6 +72,7 @@ DOCKER_SYNC_STRATEGY=native_osx
 ###########################################################
 
 ### WORKSPACE #############################################
+WORKSPACE_INSTALL_FFMPEG=true
 
 WORKSPACE_COMPOSER_GLOBAL_INSTALL=true
 WORKSPACE_COMPOSER_REPO_PACKAGIST=
