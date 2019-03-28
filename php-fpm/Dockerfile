@@ -656,7 +656,7 @@ RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 COPY ./laravel.ini /usr/local/etc/php/conf.d
 COPY ./xlaravel.pool.conf /usr/local/etc/php-fpm.d/
 
-COPY ./php-fpm/php${PHP_VERSION}.ini /usr/local/etc/php/php.ini
+COPY ./php-fpm/php${LARADOCK_PHP_VERSION}.ini /usr/local/etc/php/php.ini
 
 USER root
 

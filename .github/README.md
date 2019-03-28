@@ -1,92 +1,80 @@
-<p align="center">
-    <img src="/.github/home-page-images/laradock-logo.jpg?raw=true" alt="Laradock Logo"/>
-</p>
 
-<p align="center">A Docker PHP development environment that facilitates running PHP Apps on Docker</p>
+# 部署文档
 
-<p align="center">
-   <a href="https://travis-ci.org/laradock/laradock"><img src="https://travis-ci.org/laradock/laradock.svg?branch=master" alt="Build status"></a>
-   <a href="https://github.com/laradock/laradock/stargazers"><a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/laradock/backers/badge.svg" /></a> <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/laradock/sponsors/badge.svg" /></a> <img src="https://img.shields.io/github/stars/laradock/laradock.svg" alt="GitHub stars"></a>
-   <a href="https://github.com/laradock/laradock/network"><img src="https://img.shields.io/github/forks/laradock/laradock.svg" alt="GitHub forks"></a>
-   <a href="https://github.com/laradock/laradock/issues"><img src="https://img.shields.io/github/issues/laradock/laradock.svg" alt="GitHub issues"></a>
-   <a href="https://raw.githubusercontent.com/laradock/laradock/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a>
-    <a href="http://laradock.io/contributing"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome"></a>
-</p>
+[TOC]
 
-<h4 align="center" style="color:#7d58c2">Use Docker First And Learn About It Later</h4>
-
-<p align="center">
-    <a href="http://zalt.me"><img src="http://forthebadge.com/images/badges/built-by-developers.svg" alt="forthebadge" width="240" ></a>
-</p>
+> 本教程用例为 Ubuntu Server 18.04 LTS, 其他操作系统需自行修改差异部分
 
 
----
+## 安装 Docker
 
-<p align="center">
-	<a href="http://laradock.io">
-	   <img src="https://s19.postimg.org/ecnn9vdw3/Screen_Shot_2017-08-01_at_5.08.54_AM.png" width=300px" alt="Laradock Docs"/>
-	</a>
-</p>
+```bash
+sudo apt update
 
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-## Sponsors
+sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt update
+sudo apt install docker-ce
 
-Support this project by becoming a sponsor. 
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
 
-Your logo will show up on the [github repository](https://github.com/laradock/laradock/) index page and the [documentation](http://laradock.io/) main page, with a link to your website. [[Become a sponsor](https://opencollective.com/laradock#sponsor)]
-
-<a href="https://opencollective.com/laradock/sponsor/0/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/1/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/2/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/3/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/4/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/5/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/6/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/7/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/8/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/laradock/sponsor/9/website" target="_blank"><img src="https://opencollective.com/laradock/sponsor/9/avatar.svg"></a>
-
-
-## Contributors
-
-#### Core contributors:
-- [Mahmoud Zalt](https://github.com/Mahmoudz) @mahmoudz | [Twitter](https://twitter.com/Mahmoud_Zalt) | [Site](http://zalt.me)
-- [Bo-Yi Wu](https://github.com/appleboy) @appleboy | [Twitter](https://twitter.com/appleboy)
-- [Philippe Trépanier](https://github.com/philtrep) @philtrep
-- [Mike Erickson](https://github.com/mikeerickson) @mikeerickson
-- [Dwi Fahni Denni](https://github.com/zeroc0d3) @zeroc0d3
-- [Thor Erik](https://github.com/thorerik) @thorerik
-- [Winfried van Loon](https://github.com/winfried-van-loon) @winfried-van-loon
-- [TJ Miller](https://github.com/sixlive) @sixlive
-- [Yu-Lung Shao (Allen)](https://github.com/bestlong) @bestlong
-- [Milan Urukalo](https://github.com/urukalo) @urukalo
-- [Vince Chu](https://github.com/vwchu) @vwchu
-- [Huadong Zuo](https://github.com/zuohuadong) @zuohuadong
-- Join us, by submitting 20 useful PR's.
-
-#### Awesome contributors:
-
-<a href="https://github.com/laradock/laradock/graphs/contributors"><img src="https://opencollective.com/laradock/contributors.svg?width=890" /></a>
+## 部署 Laradock
 
 
-## Donations
+```bash
+cd {your-project}
+mkdir laradock
+copy 本项目中的 use-in-project 文件夹下的所有文件到 {your-project}/laradock
 
-> Help keeping the project development going, by [contributing](http://laradock.io/contributing) or donating a little. 
-> Thanks in advance.
+cd lardock
+cp env-example .env
 
-Donate directly via [Paypal](https://www.paypal.me/mzalt)
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mzalt) 
-
-or become a backer on [Open Collective](https://opencollective.com/laradock#backer)
-
-<a href="https://opencollective.com/laradock#backers" target="_blank"><img src="https://opencollective.com/laradock/backers.svg?width=890"></a>
-
-or show your support via [Beerpay](https://beerpay.io/laradock/laradock) 
-
-[![Beerpay](https://beerpay.io/laradock/laradock/badge.svg?style=flat)](https://beerpay.io/laradock/laradock)
+#{修改 .env 中配置值 以下为必要值示例}
+#{DATA_PATH_HOST=/.laradock/data/your-project-name}
+#{COMPOSE_PROJECT_NAME=your-project-name}
+#{MYSQL_DATABASE=app}
+#{MYSQL_PASSWORD=MySqL@DefAuLtUsEr!}
+#{MYSQL_ROOT_PASSWORD=MySqL@(RoOT)UsEr%}
+#{REDIS_PASSWORD=ReDiS@!DoCkEr!}
+#{NGINX_HOST_HTTP_PORT=80}
+#{NGINX_HOST_HTTP_PORT=443}
 
 
-## License
+#其他配置需按照注释按需进行修改
 
-[MIT License](https://github.com/laradock/laradock/blob/master/LICENSE)
+
+sudo docker-compose up -d
+
+bansh ./copy-default-config-from-container.sh
+
+docker-compose down
+
+将 docker-compose.yml 中被注释的挂载打开
+
+docker-compose up
+
+docker-compose exec workspace bash
+
+composer install
+
+php artisan migrate
+php artisan db:seed
+chown -R laradock:laradock public bootstrap/cache storage
+
+composer dump-autoload
+```
+
+**以上所有配置文件需要自行按照实际情况修改配置值**
