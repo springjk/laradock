@@ -8,6 +8,9 @@ env:
     - PHP_VERSION=7.2 BUILD_SERVICE=workspace
     - PHP_VERSION=7.2 BUILD_SERVICE=php-fpm
     - PHP_VERSION=7.2 BUILD_SERVICE=php-worker
+    - MYSQL_VERSION=5.7.27 BUILD_SERVICE=mysql
+    - MYSQL_VERSION=8.0.17 BUILD_SERVICE=mysql
+    - BUILD_SERVICE=redis
 
 
 # Installing a newer Docker version
