@@ -32,5 +32,13 @@ cat .env
 cp docker-compose.build.yml docker-compose.yml
 docker-compose build ${BUILD_SERVICE}
 docker images
-docker tag laradock_${BUILD_SERVICE}:latest ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}:${BUILD_VERSION}
+
+# push latest
 docker push ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}
+
+if [ ${BUILD_VERSION} != "latest" ]; then
+    # push build version
+    docker tag laradock_${BUILD_SERVICE}:latest ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}:${BUILD_VERSION}
+    docker push ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}
+fi
+

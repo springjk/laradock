@@ -10,16 +10,27 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
-      image: springjk/laradock-workspace:auto-build
+      image: springjk/laradock-workspace:7.2
       volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
       networks:
         - frontend
         - backend
 
+### PHP Worker ############################################
+    php-worker:
+      image: springjk/laradock-worker:7.2
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ./php-worker/supervisord.d:/etc/supervisord.d
+      depends_on:
+        - workspace
+      networks:
+        - backend
+
 ### PHP-FPM ##############################################
     php-fpm:
-      image: springjk/laradock-php-fpm:auto-build
+      image: springjk/laradock-php-fpm:7.2
       volumes:
         - ./php-fpm/php${PHP_VERSION}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
@@ -32,7 +43,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
-      image: springjk/laradock-nginx:auto-build
+      image: springjk/laradock-nginx:latest
       volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
@@ -47,7 +58,7 @@ services:
 
 ### MySQL ################################################
     mysql:
-      image: springjk/laradock-mysql:auto-build
+      image: springjk/laradock-mysql:8.0.15
       environment:
         - MYSQL_DATABASE=${MYSQL_DATABASE}
         - MYSQL_USER=${MYSQL_USER}
@@ -64,7 +75,7 @@ services:
 
 ### Redis ################################################
     redis:
-      image: springjk/laradock-redis:auto-build
+      image: springjk/laradock-redis:latest
       command: 'redis-server --requirepass ${REDIS_PASSWORD}'
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
