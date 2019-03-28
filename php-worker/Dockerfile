@@ -121,6 +121,19 @@ RUN if [ ${INSTALL_SWOOLE} = true ]; then \
     && docker-php-ext-enable swoole \
 ;fi
 
+###########################################################################
+# FFmpeg:
+###########################################################################
+
+USER root
+
+ARG INSTALL_FFMPEG=false
+
+RUN if [ ${INSTALL_FFMPEG} = true ]; then \
+    apt-get update -y && \
+    apt-get install -y ffmpeg \
+;fi
+
 
 #
 #--------------------------------------------------------------------------

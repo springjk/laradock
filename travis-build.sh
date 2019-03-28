@@ -13,6 +13,7 @@ env | sort
 
 cp env-build .env
 cat .env
+cp docker-compose.build.yml docker-compose.yml
 docker-compose build ${BUILD_SERVICE}
 docker images
 docker tag laradock_${BUILD_SERVICE}:latest ${DOCKER_USERNAME}/laradock-${BUILD_SERVICE}:auto-build
