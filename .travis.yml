@@ -3,13 +3,14 @@ sudo: required
 services:
   - docker
 
+# https://hub.docker.com/_/mysql?tab=tags
 env:
   matrix:
     - PHP_VERSION=7.2 BUILD_SERVICE=workspace
     - PHP_VERSION=7.2 BUILD_SERVICE=php-fpm
     - PHP_VERSION=7.2 BUILD_SERVICE=php-worker
-    - MYSQL_VERSION=5.7.27 BUILD_SERVICE=mysql
-    - MYSQL_VERSION=8.0.17 BUILD_SERVICE=mysql
+    - MYSQL_VERSION=5.7.25 BUILD_SERVICE=mysql
+    - MYSQL_VERSION=8.0.15 BUILD_SERVICE=mysql
     - BUILD_SERVICE=redis
 
 
