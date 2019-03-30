@@ -6,6 +6,9 @@ services:
 # https://hub.docker.com/_/mysql?tab=tags
 env:
   matrix:
+    - PHP_VERSION=7.1 BUILD_SERVICE=workspace
+    - PHP_VERSION=7.1 BUILD_SERVICE=php-fpm
+    - PHP_VERSION=7.1 BUILD_SERVICE=php-worker
     - PHP_VERSION=7.2 BUILD_SERVICE=workspace
     - PHP_VERSION=7.2 BUILD_SERVICE=php-fpm
     - PHP_VERSION=7.2 BUILD_SERVICE=php-worker
