@@ -983,6 +983,7 @@ USER root
 ARG INSTALL_FFMPEG=false
 
 RUN if [ ${INSTALL_FFMPEG} = true ]; then \
+    add-apt-repository ppa:jonathonf/ffmpeg-4 && \
     apt-get update -y && \
     apt-get install -y ffmpeg \
 ;fi
